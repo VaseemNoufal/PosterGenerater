@@ -8,9 +8,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+  <header>
+    <div class="wrapper">
+      <div class="left">
+        <h1>
+          <a href="#">
+            <img src="images/mhmlogo.png" alt="Logo Of MHM">
+          </a>
+        </h1>
+      </div>
+      <div class="middle">
+        <nav>
+          <ul>
+            <li>
+              <a href="#">About</a>
+            </li>
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">Create Something like this?</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="right">
+        <img src="images/hamburgermenu.svg" alt="">
+      </div>
+    </div>
+  </header>
   <div class="top">
-    <h1>Upload Your Photo</h1>
-    <input type="file" id="upload" accept="image/*">
+    <h1 class="main">നിങ്ങളുടെ ഫോട്ടോ അപ്ലോഡ് ചെയ്യൂ പോസ്റ്റർ നിർമ്മിക്കൂ.</h1>
+    <label for="upload" class="custom-upload">Choose File</label>
+    <input type="file" id="upload" accept="image/*" style="display:none">
+    <div id="fileName">No file chosen</div>
+
   </div>
   
   <br><br>

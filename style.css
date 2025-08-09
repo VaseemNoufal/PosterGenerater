@@ -1,12 +1,30 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: tahoma;
+}
+:root{
+  primary-color: #276b93;
+}
 body {
   text-align: center;
   font-family: Arial, sans-serif;
   background: #f9f9f9;
-  padding: 40px;
 }
-
-h1 {
+ul, li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+h1.main{
   color: #333;
+  font-weight: bold;
+  font-size: 40px;
+  margin: 0 auto;
+  max-width: 800px;
+  margin-bottom: 20px;
 }
 
 input {
@@ -41,6 +59,72 @@ button:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.custom-upload {
+  background-color: #2e86de;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.custom-upload:hover {
+  background-color: #1e6fbe;
+}
+
+#fileName {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding-top: 80px;
+}
+
+.canvas-container {
+  margin: 0 auto !important;
+}
+header{
+  height: 100px;
+  padding: 10px 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+header .wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+}
+header .wrapper div.left h1{
+  width: 100px;
+}
+header .wrapper div.left h1 a{
+  display: block;
+  width: 100%;
+}
+header .wrapper div.left h1 a img{
+  display: block;
+  width: 100%;
+}
+header .wrapper div.middle{
+  padding-top: 15px;
+}
+header .wrapper div.middle nav ul li a{
+  color: #276b93;
+}
+header .wrapper div.middle nav ul{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+header .wrapper div.right{
+  display: none;
 }
 
 @media all and (min-width: 700px){

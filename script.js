@@ -6,8 +6,13 @@ const fabricCanvas = new fabric.Canvas("posterCanvas", {
 
 let uploadedImage; // Save reference
 
+// File upload + filename display
 document.getElementById("upload").addEventListener("change", (e) => {
   const file = e.target.files[0];
+
+  // Update filename display
+  document.getElementById("fileName").textContent = file ? file.name : "No file chosen";
+
   if (!file) return;
 
   const reader = new FileReader();
@@ -56,6 +61,7 @@ template.onload = () => {
   fabricCanvas.bringToFront(bg);
 };
 
+// Download button
 document.getElementById("downloadBtn").addEventListener("click", () => {
   fabricCanvas.discardActiveObject();
   fabricCanvas.renderAll();
