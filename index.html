@@ -5,11 +5,14 @@
   <title>Poster Generator</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.2.4/fabric.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <h1>Upload Your Photo</h1>
-
-  <input type="file" id="upload" accept="image/*">
+  <div class="top">
+    <h1>Upload Your Photo</h1>
+    <input type="file" id="upload" accept="image/*">
+  </div>
+  
   <br><br>
 
   <canvas id="posterCanvas" width="800" height="1000"></canvas>

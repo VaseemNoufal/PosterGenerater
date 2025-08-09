@@ -33,3 +33,41 @@ button {
 button:hover {
   background-color: #1e6fbe;
 }
+.canvas-container{
+  margin: 0 auto !important;
+}
+.top{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media all and (min-width: 700px){
+  .canvas-container{
+    width: 600px !important;
+    height: 600px !important;
+  }
+  #posterCanvas{
+    width: inherit !important;
+    height: inherit !important;
+  }
+  .upper-canvas{
+    width: inherit !important;
+    height: inherit !important;
+  }
+}
+@media all and (min-width: 1300px){
+  .canvas-container{
+    width: 1000px !important;
+    height: 1000px !important;
+  }
+  #posterCanvas{
+    width: inherit !important;
+    height: inherit !important;
+  }
+  .upper-canvas{
+    width: inherit !important;
+    height: inherit !important;
+  }
+}
