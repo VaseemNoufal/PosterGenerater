@@ -5,7 +5,7 @@
   font-family: tahoma;
 }
 :root{
-  primary-color: #276b93;
+  --primary-color: #276b93;
 }
 body {
   text-align: center;
@@ -126,7 +126,62 @@ header .wrapper div.middle nav ul{
 header .wrapper div.right{
   display: none;
 }
-
+@media all and (min-width: 400px) {
+  .canvas-container{
+    width: 400px !important;
+    height: 400px !important;
+  }
+  #posterCanvas{
+    width: inherit !important;
+    height: inherit !important;
+  }
+  .upper-canvas{
+    width: inherit !important;
+    height: inherit !important;
+  }
+}
+@media all and (min-width: 500px) {
+  .canvas-container{
+    width: 480px !important;
+    height: 480px !important;
+  }
+  #posterCanvas{
+    width: inherit !important;
+    height: inherit !important;
+  }
+  .upper-canvas{
+    width: inherit !important;
+    height: inherit !important;
+  }
+}
+@media all and (min-width: 599px) {
+  .canvas-container{
+    width: 500px !important;
+    height: 500px !important;
+  }
+  #posterCanvas{
+    width: inherit !important;
+    height: inherit !important;
+  }
+  .upper-canvas{
+    width: inherit !important;
+    height: inherit !important;
+  }
+}
+@media all and (min-width: 699px) {
+  .canvas-container{
+    width: 550px !important;
+    height: 550px !important;
+  }
+  #posterCanvas{
+    width: inherit !important;
+    height: inherit !important;
+  }
+  .upper-canvas{
+    width: inherit !important;
+    height: inherit !important;
+  }
+}
 @media all and (min-width: 700px){
   .canvas-container{
     width: 600px !important;
