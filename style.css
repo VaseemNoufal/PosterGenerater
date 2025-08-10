@@ -46,6 +46,7 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-bottom: 30px;
 }
 
 button:hover {
@@ -93,6 +94,7 @@ header{
   height: 100px;
   padding: 10px 0;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  position: relative;
 }
 header .wrapper{
   display: flex;
@@ -126,10 +128,79 @@ header .wrapper div.middle nav ul{
 header .wrapper div.right{
   display: none;
 }
+header .overlay{
+  position: fixed;
+  right: -100%;
+  top: 0;
+  background: var(--primary-color);
+  height: 100vh;
+  z-index: 1000;
+  width: 50vw;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 40px;
+  transition: all .5s ease;
+}
+header .overlay.active{
+  right: 0;
+}
+header .overlay .xmark{
+  width: 30px;
+  cursor: pointer;
+}
+header .overlay .xmark img{
+  display: block;
+  width: 100%;
+  filter: invert(1);
+}
+header .overlay nav ul{
+  text-align: left;
+}
+header .overlay nav ul li{
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+header .overlay nav ul li a{
+  color: #fff;
+}
+footer{
+  padding: 30px;
+  text-align: center;
+  margin-top: 20px;
+}
+@media all and (min-width: 300px) {
+  .canvas-container{
+    width: 290px !important;
+    height: 290px !important;
+  }
+  #posterCanvas{
+    width: inherit !important;
+    height: inherit !important;
+  }
+  .upper-canvas{
+    width: inherit !important;
+    height: inherit !important;
+  }
+}
+@media all and (min-width: 347px) {
+  .canvas-container{
+    width: 320px !important;
+    height: 320px !important;
+  }
+  #posterCanvas{
+    width: inherit !important;
+    height: inherit !important;
+  }
+  .upper-canvas{
+    width: inherit !important;
+    height: inherit !important;
+  }
+}
 @media all and (min-width: 400px) {
   .canvas-container{
-    width: 400px !important;
-    height: 400px !important;
+    width: 380px !important;
+    height: 380px !important;
   }
   #posterCanvas{
     width: inherit !important;
@@ -208,5 +279,69 @@ header .wrapper div.right{
   .upper-canvas{
     width: inherit !important;
     height: inherit !important;
+  }
+}
+@media all and (max-width: 980px){
+  header .wrapper div.middle{
+    display: none;
+  }
+  header .wrapper div.right{
+    display: block;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    cursor: pointer;
+  }
+  header .wrapper div.right img{
+    filter: invert(27%) sepia(45%) saturate(728%) hue-rotate(167deg) brightness(91%) contrast(89%);
+  }
+}
+@media all and (max-width: 850px){
+  h1.main{
+    font-size: 30px;
+  }
+}
+@media all and (max-width: 800px){
+  h1.main{
+    max-width: 600px;
+  }
+}
+@media all and (max-width: 690px){
+  header .overlay{
+    width: 70vw;
+  }
+}
+@media all and (max-width: 612px){
+  h1.main{
+    font-size: 27px;
+    max-width: 500px;
+  }
+}
+@media all and (max-width: 526px){
+  h1.main{
+    font-size: 24px;
+    max-width: 480px;
+  }
+   header .overlay{
+    width: 90vw;
+  }
+}
+@media all and (max-width: 458px){
+  h1.main{
+    font-size: 28px;
+    max-width: 440px;
+  }
+}
+@media all and (max-width: 435px){
+  h1.main{
+    max-width: 400px;
+  }
+}
+@media all and (max-width: 374px){
+  h1.main{
+    font-size: 25px;
+    max-width: 410px;
   }
 }

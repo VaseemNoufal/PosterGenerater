@@ -33,7 +33,25 @@
         </nav>
       </div>
       <div class="right">
-        <img src="images/hamburgermenu.svg" alt="">
+        <img src="images/hamburgermenu.svg" alt="" id="hambur">
+      </div>
+      <div class="overlay" id="overlay">
+        <nav>
+          <ul>
+            <li>
+              <a href="#">About</a>
+            </li>
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">Create Something like this?</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="xmark">
+          <img src="images/xmark-solid.svg" alt="" id="xmarkk">
+        </div>
       </div>
     </div>
   </header>
@@ -52,6 +70,21 @@
 
   <button id="downloadBtn">Download Poster</button>
 
+  <footer>
+    <p>Designed and Developed By <a href="https://vaseemnoufal.vercel.app" target="_blank">Vaseem Noufal</a></p>
+  </footer>
+
   <script src="script.js"></script>
+  <script>
+    let hamburger = document.getElementById("hambur");
+    let overlay = document.getElementById("overlay")
+    let xmark = document.getElementById("xmarkk")
+    hamburger.addEventListener("click", () =>{
+      overlay.classList.toggle("active")
+    })
+    xmark.addEventListener("click", () =>{
+      overlay.classList.toggle("active")
+    })
+  </script>
 </body>
 </html>
