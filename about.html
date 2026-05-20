@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | MHM</title>
+  
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: tahoma, Arial, sans-serif;
+    }
+    
+    :root {
+      --primary-color: #276b93;
+      --primary-light: #3a8bbd;
+      --bg-color: #f9f9f9;
+      --text-main: #333;
+      --text-muted: #555;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    ul, li { list-style: none; }
+    a { text-decoration: none; }
+
+    /* =========================================
+       HEADER STYLES
+       ========================================= */
+    header {
+      height: 100px;
+      padding: 10px 0;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      position: relative;
+      background: #fff;
+      z-index: 100;
+    }
+    header .wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 90%;
+      margin: 0 auto;
+    }
+    header .wrapper div.left h1 { width: 100px; }
+    header .wrapper div.left h1 a, 
+    header .wrapper div.left h1 a img { display: block; width: 100%; }
+    
+    header .wrapper div.middle { padding-top: 15px; }
+    header .wrapper div.middle nav ul { display: flex; align-items: center; gap: 30px; }
+    header .wrapper div.middle nav ul li a { color: var(--primary-color); font-weight: bold; }
+    
+    header .wrapper div.right { display: none; }
+    
+    .css-hamburger {
+      width: 30px;
+      height: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+    .css-hamburger span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: var(--primary-color);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    header .overlay {
+      position: fixed;
+      right: -100%;
+      top: 0;
+      background: var(--primary-color);
+      height: 100vh;
+      z-index: 1000;
+      width: 50vw;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 40px;
+      transition: all .5s ease;
+    }
+    header .overlay.active { right: 0; }
+    header .overlay .xmark { width: 30px; cursor: pointer; }
+    header .overlay .xmark img { display: block; width: 100%; max-width: 30px; filter: invert(1); }
+    header .overlay nav ul { text-align: left; flex-direction: column; gap: 15px; display: flex;}
+    header .overlay nav ul li { font-size: 20px; }
+    header .overlay nav ul li a { color: #fff; }
+
+    .hero-banner {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+      margin-bottom: 40px;
+    }
+
+    .hero-banner h2 {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .hero-banner p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+    
+    .est-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .about-card {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border-top: 4px solid var(--primary-color);
+    }
+
+    .about-card h3 {
+      font-size: 24px;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .about-card p {
+      margin-bottom: 15px;
+      color: var(--text-muted);
+      text-align: justify;
+    }
+
+    .tech-section {
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      margin-bottom: 50px;
+      text-align: center;
+      border: 1px solid #eee;
+    }
+
+    .tech-section h3 {
+      font-size: 28px;
+      color: var(--text-main);
+      margin-bottom: 20px;
+    }
+
+    .tech-section p {
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+      color: var(--text-muted);
+    }
+
+    .features-grid {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .feature-item {
+      padding: 20px;
+      background: var(--bg-color);
+      border-radius: 8px;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    footer {
+      padding: 30px;
+      text-align: center;
+      margin-top: 40px;
+      color: var(--text-muted);
+      background: #fff;
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.02);
+    }
+    footer a {
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    @media all and (max-width: 980px) {
+      header .wrapper div.middle { display: none; }
+      header .wrapper div.right { display: flex; align-items: center; padding-top: 10px; }
+    }
+    @media all and (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .hero-banner h2 { font-size: 30px; }
+      header .overlay { width: 70vw; }
+      .tech-section { padding: 30px 20px; }
+    }
+    @media all and (max-width: 526px) {
+      header .overlay { width: 90vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrapper">
+      <div class="left">
+        <h1>
+          <a href="index.html">
+            <img src="images/mhmlogo.png" alt="Logo Of MHM">
+          </a>
+        </h1>
+      </div>
+      <div class="middle">
+        <nav>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="create.html">Create Something like this?</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="right">
+        <div class="css-hamburger" id="hambur">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="overlay" id="overlay">
+        <nav>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html">Create Something like this?</a></li>
+          </ul>
+        </nav>
+        <div class="xmark">
+          <img src="images/xmark-solid.svg" alt="Close Menu" id="xmarkk">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="hero-banner">
+    <div class="est-badge">Established 1979</div>
+    <h2>Guiding Generations in Deen</h2>
+    <p>Empowering the Ummah with profound Islamic knowledge, rooted in rich tradition and enhanced by modern educational excellence.</p>
+  </div>
+
+  <main class="container">
+    
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>Our Legacy</h3>
+        <p>Since our foundation in 1979, MHM has stood as a pillar of Islamic education for the community. For over four decades, our madrasa has been dedicated to nurturing young minds with the authentic teachings of Islam, guiding them onto the righteous path.</p>
+        <p>Our curriculum focuses on building a strong foundation in Deen, encompassing Quranic studies, Hadeeth, Fiqh, and Akhlaq. We take pride in preserving our rich heritage while preparing our students to face the challenges of the modern world with unshakeable Iman.</p>
+      </div>
+
+      <div class="about-card">
+        <h3>Our Mission</h3>
+        <p>Our primary mission is to provide comprehensive and accessible Islamic education that instills strong moral values and deep spiritual understanding in every student.</p>
+        <p>We strive to cultivate an environment where students not only memorize texts but truly comprehend and apply Islamic principles in their daily lives, becoming exemplary models of the Ummah and contributing positively to society.</p>
+      </div>
+    </div>
+
+    <div class="tech-section">
+      <h3>Modernized Deen Education</h3>
+      <p>While our roots remain deeply embedded in traditional Islamic scholarship, our teaching methodologies have evolved. We integrate state-of-the-art technology to make learning Deen engaging, interactive, and highly effective for today's generation.</p>
+      
+      <div class="features-grid">
+        <div class="feature-item">Smart Classrooms & Digitalized Systems</div>
+        <div class="feature-item">Islamic Library & Resources</div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>Designed and Developed By <a href="https://vaseemnoufal.vercel.app" target="_blank">Vaseem Noufal</a></p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById("hambur");
+    const overlay = document.getElementById("overlay");
+    const xmark = document.getElementById("xmarkk");
+    
+    hamburger.addEventListener("click", () => {
+      overlay.classList.add("active");
+    });
+    
+    xmark.addEventListener("click", () => {
+      overlay.classList.remove("active");
+    });
+  </script>
+
+</body>
+</html>

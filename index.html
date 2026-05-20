@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <title>Poster Generator</title>
   <link rel="stylesheet" href="style.css">
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.2.4/fabric.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -20,33 +26,25 @@
       <div class="middle">
         <nav>
           <ul>
-            <li>
-              <a href="#">About</a>
-            </li>
-            <li>
-              <a href="#">Home</a>
-            </li>
-            <li>
-              <a href="#">Create Something like this?</a>
-            </li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Create Something like this?</a></li>
           </ul>
         </nav>
       </div>
       <div class="right">
-        <img src="images/hamburgermenu.svg" alt="" id="hambur">
+        <div class="css-hamburger" id="hambur">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
       <div class="overlay" id="overlay">
         <nav>
           <ul>
-            <li>
-              <a href="#">About</a>
-            </li>
-            <li>
-              <a href="#">Home</a>
-            </li>
-            <li>
-              <a href="#">Create Something like this?</a>
-            </li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Create Something like this?</a></li>
           </ul>
         </nav>
         <div class="xmark">
@@ -55,23 +53,41 @@
       </div>
     </div>
   </header>
+
   <div class="top">
     <h1 class="main">നിങ്ങളുടെ ഫോട്ടോ അപ്ലോഡ് ചെയ്യൂ പോസ്റ്റർ നിർമ്മിക്കൂ.</h1>
     <label for="upload" class="custom-upload">Choose File</label>
     <input type="file" id="upload" accept="image/*" style="display:none">
     <div id="fileName">No file chosen</div>
-
   </div>
   
   <br><br>
 
+  <div id="cropModal" class="crop-modal">
+    <div class="crop-modal-content">
+      <div class="crop-header">
+        <h3>Select and Crop the image</h3>
+        <span id="closeCropModal">&times;</span>
+      </div>
+      <div class="crop-body">
+        <div class="img-container">
+          <img id="cropImage" src="" alt="Picture">
+        </div>
+      </div>
+      <div class="crop-footer">
+        <button id="cropBtn">Crop & Apply</button>
+      </div>
+    </div>
+  </div>
+
   <canvas id="posterCanvas" width="800" height="1000"></canvas>
   <br><br>
-
+  <button id="reCropBtn" style="display: none;">Edit Crop</button>
+  <button id="shareWhatsAppBtn" style="display: none;">Share to WhatsApp</button>
+  
   <button id="downloadBtn">Download Poster</button>
-
   <footer>
-    <p>Designed and Developed By <a href="https://vaseemnoufal.vercel.app" target="_blank">Vaseem Noufal</a></p>
+    <p>Designed and Developed By <a href="https://vaseemnoufal.vercel.app" class="vaseemname">Vaseem Noufal</a></p>
   </footer>
 
   <script src="script.js"></script>
