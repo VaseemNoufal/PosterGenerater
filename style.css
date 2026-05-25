@@ -43,10 +43,6 @@ canvas {
   margin: 20px auto;
 }
 
-.canvas-container {
-  margin: 0 auto !important;
-}
-
 .top {
   display: flex;
   flex-direction: column;
@@ -349,62 +345,28 @@ canvas,
   -webkit-tap-highlight-color: transparent;
 }
 
-@media all and (min-width: 300px) {
-  .canvas-container, #posterCanvas, .upper-canvas {
-    width: 290px !important;
-    height: 290px !important;
-  }
+
+/* =========================================
+   ULTIMATE RESPONSIVE CANVAS FIX
+   ========================================= */
+.canvas-container {
+  width: 95% !important; 
+  max-width: 600px !important; 
+  height: auto !important; 
+  margin: 20px auto !important;
 }
 
-@media all and (min-width: 347px) {
-  .canvas-container, #posterCanvas, .upper-canvas {
-    width: 320px !important;
-    height: 320px !important;
-  }
+.canvas-container canvas, 
+.upper-canvas, 
+.lower-canvas {
+  width: 100% !important;
+  height: auto !important; 
 }
 
-@media all and (min-width: 400px) {
-  .canvas-container, #posterCanvas, .upper-canvas {
-    width: 380px !important;
-    height: 380px !important;
-  }
-}
 
-@media all and (min-width: 500px) {
-  .canvas-container, #posterCanvas, .upper-canvas {
-    width: 480px !important;
-    height: 480px !important;
-  }
-}
-
-@media all and (min-width: 599px) {
-  .canvas-container, #posterCanvas, .upper-canvas {
-    width: 500px !important;
-    height: 500px !important;
-  }
-}
-
-@media all and (min-width: 699px) {
-  .canvas-container, #posterCanvas, .upper-canvas {
-    width: 550px !important;
-    height: 550px !important;
-  }
-}
-
-@media all and (min-width: 700px) {
-  .canvas-container, #posterCanvas, .upper-canvas {
-    width: 600px !important;
-    height: 600px !important;
-  }
-}
-
-@media all and (min-width: 1300px) {
-  .canvas-container, #posterCanvas, .upper-canvas {
-    width: 1000px !important;
-    height: 1000px !important;
-  }
-}
-
+/* =========================================
+   MEDIA QUERIES (Layout only)
+   ========================================= */
 @media all and (max-width: 980px) {
   header .wrapper div.middle {
     display: none;
@@ -481,4 +443,28 @@ canvas,
     width: 80%;
     margin: 10px auto;
   }
+}
+/* =========================================
+   THE FLAWLESS RESPONSIVE CANVAS FIX
+   ========================================= */
+.canvas-container {
+  margin: 20px auto !important;
+  width: 95% !important;
+  max-width: 600px !important;
+  height: auto !important; /* Lets the container breathe */
+  position: relative !important;
+}
+
+.lower-canvas {
+  width: 100% !important;
+  height: auto !important;
+  position: relative !important; /* THIS is the magic! It pushes the container open to the exact height of your poster, keeping the footer down! */
+}
+
+.upper-canvas {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
 }

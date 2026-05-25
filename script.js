@@ -2,16 +2,16 @@ const canvasEl = document.getElementById("posterCanvas");
 const fabricCanvas = new fabric.Canvas("posterCanvas", {
   preserveObjectStacking: true,
   selection: false,
+  enableRetinaScaling: false, // <-- THIS FIXES THE SHRINKING TEMPLATE ISSUE!
 });
 
 // Global Variables
 let uploadedImage; 
 let cropper; 
 let templateObj; 
-let watermarkObj; // Tracks the text watermark
 let lastCropData = null; 
 
-const posterCropRatio = 1; 
+const posterCropRatio = 4 / 5;
 
 // DOM Elements
 const cropModal = document.getElementById('cropModal');
@@ -77,14 +77,14 @@ cropBtn.addEventListener("click", () => {
   fabric.Image.fromURL(croppedDataUrl, function (img) {
     img.set({
       left: fabricCanvas.getWidth() / 2,
-      top: fabricCanvas.getHeight() / 2,
+      top: (fabricCanvas.getHeight() / 2) + 78,
       originX: "center",
       originY: "center",
       selectable: false, 
       evented: false,    
     });
 
-    const scaleFactor = (fabricCanvas.getWidth() * 0.95) / img.width;
+    const scaleFactor = (fabricCanvas.getWidth() * 0.48) / img.width;
     img.scale(scaleFactor);
 
     if (uploadedImage) fabricCanvas.remove(uploadedImage);
@@ -92,13 +92,10 @@ cropBtn.addEventListener("click", () => {
     uploadedImage = img;
     fabricCanvas.add(uploadedImage);
     
-    // Z-Index Layering: Photo back, Template middle, Watermark top
+    // Z-Index Layering: Photo back, Template middle
     fabricCanvas.sendToBack(uploadedImage);
     if (templateObj) {
       templateObj.bringToFront();
-    }
-    if (watermarkObj) {
-      watermarkObj.bringToFront();
     }
     
     fabricCanvas.renderAll();
@@ -130,9 +127,9 @@ reCropBtn.addEventListener("click", () => {
   });
 });
 
-// 5. Load Template and Watermark Text
+// 5. Load Template (Watermark code removed entirely)
 const template = new Image();
-template.src = "template.png"; 
+template.src = "templateid1.png"; 
 
 template.onload = () => {
   fabricCanvas.setWidth(template.width);
@@ -146,31 +143,7 @@ template.onload = () => {
   });
 
   fabricCanvas.add(templateObj);
-  
-  // Create Watermark Text
-  watermarkObj = new fabric.Text('Make yours at: mhmposter.vercel.app', {
-    left: fabricCanvas.getWidth() / 2,
-    top: fabricCanvas.getHeight() - 30, // Tucked cleanly at the bottom
-    fontSize: 18,
-    fontFamily: 'Arial',
-    fontWeight: 'bold',
-    fill: '#ffffff', // Clean white text
-    originX: 'center',
-    selectable: false,
-    evented: false,
-    shadow: new fabric.Shadow({
-      color: 'rgba(0,0,0,0.8)', // Drop shadow ensures it can be read over light or dark backgrounds
-      blur: 4,
-      offsetX: 1,
-      offsetY: 1
-    })
-  });
-  
-  fabricCanvas.add(watermarkObj);
-
-  // Lock them to the top layer
   fabricCanvas.bringToFront(templateObj);
-  fabricCanvas.bringToFront(watermarkObj);
 };
 
 // 6. Download button
@@ -186,7 +159,6 @@ shareWhatsAppBtn.addEventListener("click", async () => {
   fabricCanvas.discardActiveObject();
   fabricCanvas.renderAll();
 
-  // We leave a generic message for the text field just in case
   const shareText = "Create your own personalized Eid Poster at https://mhmposter.vercel.app/";
 
   if (navigator.share) {
