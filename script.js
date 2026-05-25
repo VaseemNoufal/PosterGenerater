@@ -159,7 +159,7 @@ shareWhatsAppBtn.addEventListener("click", async () => {
   fabricCanvas.discardActiveObject();
   fabricCanvas.renderAll();
 
-  const shareText = "Create your own personalized Eid Poster at https://mhmposter.vercel.app/";
+  const shareText = "ഏവർക്കും സ്നേഹം നിറഞ്ഞ ഈദ് ആശംസകൾ! 🕌\nനിങ്ങളുടെ സ്വന്തം ഈദ് പോസ്റ്റർ ഇവിടെ തയ്യാറാക്കാം: www.mhmposter.vercel.app";
 
   if (navigator.share) {
     try {
