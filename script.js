@@ -3,6 +3,7 @@ const fabricCanvas = new fabric.Canvas("posterCanvas", {
   preserveObjectStacking: true,
   selection: false,
   enableRetinaScaling: false, // <-- THIS FIXES THE SHRINKING TEMPLATE ISSUE!
+  allowTouchScrolling: true,
 });
 
 // Global Variables
@@ -129,7 +130,7 @@ reCropBtn.addEventListener("click", () => {
 
 // 5. Load Template (Watermark code removed entirely)
 const template = new Image();
-template.src = "templateid1.png"; 
+template.src = "templateid2.png"; 
 
 template.onload = () => {
   fabricCanvas.setWidth(template.width);
@@ -159,7 +160,7 @@ shareWhatsAppBtn.addEventListener("click", async () => {
   fabricCanvas.discardActiveObject();
   fabricCanvas.renderAll();
 
-  const shareText = "ഏവർക്കും സ്നേഹം നിറഞ്ഞ ഈദ് ആശംസകൾ! 🕌\nനിങ്ങളുടെ സ്വന്തം ഈദ് പോസ്റ്റർ ഇവിടെ തയ്യാറാക്കാം: www.mhmposter.vercel.app";
+  const shareText = "ഏവർക്കും സ്നേഹം നിറഞ്ഞ ഈദ് ആശംസകൾ! 🕌\nനിങ്ങളുടെ സ്വന്തം ഈദ് പോസ്റ്റർ ഇവിടെ തയ്യാറാക്കാം: https://mhmposter.vercel.app/";
 
   if (navigator.share) {
     try {
